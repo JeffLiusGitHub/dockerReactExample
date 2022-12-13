@@ -1,0 +1,21 @@
+version: '3'
+# different version have different feature
+services:
+  react-prime:
+    # stdin_open:true
+    # 标准输入流
+    # tty:true
+    # 终端
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./src:/app/src
+    environment:
+      - REACT_APP_NAME=JeffLiu-dev
+    env_file:
+      - ./.env
+# docker-compose up -d --build ->add build when update the image
+# docker-compose down

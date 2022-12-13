@@ -1,0 +1,17 @@
+FROM node as build
+WORKDIR /app
+# set working directory of container
+COPY package.json .
+#copy package.json to the current working directory which is /app
+RUN npm install
+COPY . .
+ARG REACT_APP_NAME
+ENV REACT_APP_NAME=$REACT_APP_NAME
+RUN npm run build
+
+FROM nginx
+COPY --from=build /app/build /usr/share/nginx/html
+
+#docker build -f Dockerfile.prod -t docker-image-pord . wrong spell name
+#docker run --env-file ./.env -d -p 8080:80 --name react-pointbet-primenumber-prod docker-image-pord
+#--target <name> docker will run step till specific step eg:target build will run till line one

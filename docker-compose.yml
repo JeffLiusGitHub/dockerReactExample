@@ -1,0 +1,12 @@
+version: '3'
+services:
+  react-prime:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+
+    # volumes:
+    #   - ./src:/app/src
+
+# docker-compose up -d --build ->add build when update the image
+# docker-compose down

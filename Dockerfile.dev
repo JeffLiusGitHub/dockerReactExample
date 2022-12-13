@@ -1,0 +1,35 @@
+FROM node
+WORKDIR /app
+# set working directory of container
+COPY package.json .
+#copy package.json to the current working directory which is /app
+RUN npm install
+COPY . .
+ENV REACT_APP_NAME=Jeff
+
+# .everything in the current directory .to app directory
+#docker will build 5 of these layers, cache the result of these layers
+EXPOSE 3000
+#outside word can reach to docker with port 3000
+
+CMD [ "npm", "start" ]
+#docker build -t react-image .  --t tag . current directory
+# docker run -d -p 3000:3000 --name react-pointbet-primenumber react-image
+#left port we send traffic to local machine : right-what port we are going to send traffic to our container
+# traffic send from outside world:to docker port
+
+
+# docker exec -it react-pointbet-primenumber bash //it = interactive mode bash=go to bash terminal
+#exit
+
+#docker ps -> list all process which is running now
+#docker rm <name> -f ->force to delete (quit)
+# docker image ls -> show all existing image
+
+#docker bind mount - sync folder to container -v volume folder on local machine:folder in container
+# docker run -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-pointbet-primenumber react-image --ro means bind mount read only
+#touch: cannot touch 'new': Read-only file system
+# --env-file ./.env set env file directory to ./.env
+
+#As change name from original dockerfile to dockerfile.dev
+#new command -> docker build -f Dockerfile.dev .
