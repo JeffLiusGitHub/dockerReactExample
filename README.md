@@ -69,3 +69,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # dockerReactExample
+
+docker: popular devOps tool use to automate the deployment of applications in lightweight container, so applications can work efficiently in different environments.
+docker server use client server architecture
+docker client use command-line
+docker daemon run as a REST API will accept the request and interacts with the operating system in order to build docker image and run docker containers
+docker image: template of instructions used to create containers
+docker container: executable package of applications and dependencies together
+docker container use less space, faster than VM.
+So, container will have a better performance as they are hosted in a single image
+Good for microservice. Docker is well for scaling.           
